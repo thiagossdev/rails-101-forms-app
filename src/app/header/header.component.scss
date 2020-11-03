@@ -1,0 +1,13 @@
+.brand-logo img{
+  height: 40px;
+  margin-top: 10px;
+
+  @media screen and (max-width: 768px) {
+    height: 32px;
+    margin-top: 12px;
+  }
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+}

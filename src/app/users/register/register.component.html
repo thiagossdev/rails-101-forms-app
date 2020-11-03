@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col m6 offset-m3 s10 offset-s1">
+
+
+      <div class="row">
+        <h3 class="purple-text text-lighten-2">Register</h3>
+      </div>
+
+      <div>
+        <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <input type="text" class="form-control" placeholder="Email" required [(ngModel)]="_registerData.login" name="email">
+            <input type="password" class="form-control" placeholder="Password" required [(ngModel)]="_registerData.password" name="password">
+            <input type="password" class="form-control" placeholder="Password Confirmation" required [(ngModel)]="_registerData.passwordConfirmation"
+              name="passwordConfirmation">
+          </div>
+          
+          <div class="row">
+            <button class="btn waves-effect waves-light purple" type="submit" [disabled]="!registerForm.form.valid">
+              Sign Up
+              <i class="material-icons prefix right pt-2">send</i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
