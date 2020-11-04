@@ -14,7 +14,11 @@ export class AnswerService {
   ) { }
 
   resource_path(...path) {
-    path = [this.tokenService.tokenOptions.apiBase, this.resource].concat(path);
+    path = [
+      this.tokenService.tokenOptions.apiBase,
+      this.tokenService.tokenOptions.apiPath,
+      this.resource
+    ].concat(path);
     return path.join('/');
   }
 

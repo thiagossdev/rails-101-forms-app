@@ -1,1 +1,42 @@
-<p>question-form works!</p>
+<div class="card">
+  <div class="card-content">
+    <form #q="ngForm" (ngSubmit)="onSubmit(q)">
+      <div class="question">
+        <div class="row">
+          <div class="col m9 input-field">
+            <textarea placeholder="Your Question" class="materialize-textarea" name="title" [(ngModel)]="question.title" #title="ngModel" required></textarea>
+          </div>
+          <div class="col m3">
+            <div class="input-field col s12">
+              <select class="text-purple" name="kind" [(ngModel)]="question.kind" #kind="ngModel" required>
+                <option value="short_text" *ngIf="question.kind == 'short_text'" selected>Short Text</option>
+                <option value="short_text" *ngIf="question.kind != 'short_text'">Short Text</option>
+
+                <option value="long_text" *ngIf="question.kind == 'long_text'" selected>Long text</option>
+                <option value="long_text" *ngIf="question.kind != 'long_text'">Long text</option>
+
+                <option value="integer" *ngIf="question.kind == 'integer'" selected>Integer</option>
+                <option value="integer" *ngIf="question.kind != 'integer'">Integer</option>
+
+                <option value="boolean" *ngIf="question.kind == 'boolean'" selected>Boolean</option>
+                <option value="boolean" *ngIf="question.kind != 'boolean'">Boolean</option>
+              </select>
+              <label>Kind</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col m3" *ngIf="question.id !== undefined">
+            <a href="#" class="grey-text" (click)="deleteForm(form)">
+              <i class="material-icons">delete</i>
+            </a>
+          </div>
+          <div class="col m3 right">
+            <button [disabled]="!q.valid" class="btn waves-effect waves-light purple" type="submit" *ngIf="question.id == undefined">Create</button>
+            <button [disabled]="!q.valid" class="btn waves-effect waves-light purple" type="submit" *ngIf="question.id !== undefined">Update</button>                
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>  
+</div>

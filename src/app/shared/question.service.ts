@@ -14,12 +14,16 @@ export class QuestionService {
   ) { }
 
   resource_path(...path) {
-    path = [this.tokenService.tokenOptions.apiBase, this.resource].concat(path);
+    path = [
+      this.tokenService.tokenOptions.apiBase,
+      this.tokenService.tokenOptions.apiPath,
+      this.resource
+    ].concat(path);
     return path.join('/');
   }
  
   create(form_id, question_params) {
-    return this.http.post(this.resource_path(), { form_id: form_id, question_params });
+    return this.http.post(this.resource_path(), { form_id: form_id, question: question_params });
   }
  
   update(question_id, question_params) {
