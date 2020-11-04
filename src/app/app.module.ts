@@ -13,6 +13,10 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import { FormService } from './shared/form.service';
+import { QuestionService } from './shared/question.service';
+import { AnswerService } from './shared/answer.service';
+
 import { FormsModule } from './forms/forms.module';
 import { AnswersModule } from './answers/answers.module';
 import { UsersModule } from './users/users.module';
@@ -44,7 +48,7 @@ import { UsersModule } from './users/users.module';
   ],
   exports: [
   ],
-  providers: [AngularTokenModule],
+  providers: [AngularTokenModule, FormService, QuestionService, AnswerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

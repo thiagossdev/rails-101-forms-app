@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col m8 offset-m2">
+    <div *ngIf="form.id == undefined">
+      <h5 class="purple-text">New Form</h5>
+    </div>
+    <div *ngIf="form.id !== undefined">
+      <div class="row">
+        <div class="col m6">
+          <h5 class="purple-text">Define Form</h5>
+        </div>
+        <div class="col m6">
+          <p>
+            <a class="right purple-text" href="#" routerLink="/answers/{{ form.slug }}/new">
+              <i class="material-icons">visibility</i>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="row">
+            <div class="col m9 s12">
+              <input type="text" placeholder="Title" name="title" [(ngModel)]="form.title" required #title="ngModel">
+              <label for="title" [hidden]="title.valid || title.pristine" class="red-text text-lighten-2">Required</label>
+            </div>
+            <div class="col m3 s12">
+              <div class="switch">
+                <label>
+                  <input id="switch-id" type="checkbox" [(ngModel)]="form.enable" name="enable">
+                  <span class="lever"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <div class="container-swatches-picker">
+                <swatches-picker [(color)]="form.primary_color" name="primary_color"></swatches-picker>
+              </div>
+            </div>
+        </div>
+          <div class="row">
+            <div class="col s12">
+              <textarea type="text" placeholder="Description" class="materialize-textarea" name="description" [(ngModel)]="form.description" required #description="ngModel"></textarea>
+              <label for="description" [hidden]="description.valid || description.pristine" class="red-text text-lighten-2">Required</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col m3 right">
+              <button [disabled]="!f.valid" class="btn waves-effect waves-light purple" type="submit" *ngIf="form.id == undefined">Create</button>
+              <button [disabled]="!f.valid" class="btn waves-effect waves-light purple" type="submit" *ngIf="form.id !== undefined">Update</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

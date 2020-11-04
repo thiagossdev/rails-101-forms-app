@@ -23,15 +23,15 @@ export class RegisterComponent implements OnInit {
     this._tokenService.registerAccount(this._registerData).subscribe(
       res => {
         this._registerData = <RegisterData>{};
-        M.toast({html: 'Success, please confirm your Email 😁', classes: 'green', displayLength: 8000});
+        M.toast({html: 'Success, please confirm your Email 😁', classes: 'green'});
       }, (error: HttpErrorResponse) => {
         this._registerData = <RegisterData>{};
         if ( error.status !== 0 ) {
           for (const message of error.error.errors.full_messages) {
-            M.toast({html: message, classes: 'red', displayLength: 8000});
+            M.toast({html: message, classes: 'red'});
           }
         } else {
-          M.toast({html: 'Connection Error ☹️', classes: 'red', displayLength: 8000});
+          M.toast({html: 'Connection Error ☹️', classes: 'red'});
         }
       }
     );

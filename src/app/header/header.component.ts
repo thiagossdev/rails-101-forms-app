@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     this.tokenService.signOut().subscribe(
       res => { },
       (error: HttpErrorResponse) => {
-        M.toast({html: 'Connection Error ☹️', classes: 'red', displayLength: 8000})
+        M.toast({html: 'Connection Error ☹️', classes: 'red'})
       }
     );
   }

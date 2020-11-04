@@ -8,6 +8,7 @@ import { AnswersModule } from './answers/answers.module';
 import { UsersModule } from './users/users.module';
 
 import { AngularTokenService } from 'angular-token';
+
 import { FormListComponent } from './forms/form-list/form-list.component';
 import { FormEditComponent } from './forms/form-edit/form-edit.component';
 import { AnswerListComponent } from './answers/answer-list/answer-list.component';
@@ -21,8 +22,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forms', component: FormListComponent, canActivate: [AngularTokenService]},
-  { path: 'forms/:id', component: FormEditComponent, canActivate: [AngularTokenService]},
   { path: 'forms/new', component: FormEditComponent, canActivate: [AngularTokenService]},
+  { path: 'forms/:id', component: FormEditComponent, canActivate: [AngularTokenService]},
   { path: 'answers', component: AnswerNewComponent, canActivate: [AngularTokenService]},
   { path: 'answers/:id', component: AnswerListComponent, canActivate: [AngularTokenService]},
   { path: '**', redirectTo: 'not-found' }

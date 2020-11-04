@@ -25,16 +25,16 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this._tokenService.signIn(this._signInData).subscribe(
       res => {
-        this.router.navigate(['/forms']);
+        this.router.navigateByUrl(localStorage.getItem('redirectTo'));
       }, (error: HttpErrorResponse) => {
         this._signInData = <SignInData>{};
         console.log(error.error);
         if ( error.status !== 0 ) {
           for (const message of error.error.errors) {
-            M.toast({html: message, classes: 'red', displayLength: 8000});
+            M.toast({html: message, classes: 'red'});
           }
         } else {
-          M.toast({html: 'Connection Error ☹️', classes: 'red', displayLength: 8000});
+          M.toast({html: 'Connection Error ☹️', classes: 'red'});
         }
       }
     );
