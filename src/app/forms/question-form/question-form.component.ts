@@ -20,10 +20,7 @@ export class QuestionFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      let elems = document.querySelectorAll('select');
-      M.FormSelect.init(elems);
-    }, 100);
+    setTimeout(() => M.FormSelect.init(document.querySelectorAll('select')), 100);
   }
 
   onSubmit(f) {

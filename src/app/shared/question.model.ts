@@ -1,4 +1,4 @@
-import { QuestionsAnswer } from './question_answer.model';
+import { QuestionsAnswer } from './questions_answer.model';
 
 export class Question {
   id: number;
