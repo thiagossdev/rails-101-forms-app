@@ -11,7 +11,6 @@ export class AnswerListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    setTimeout(() => M.Tabs.init(document.querySelectorAll('.tabs'), {swipeable: true}), 100);
+    setTimeout(() => M.Tabs.init(document.querySelectorAll('.tabs')), 100);
   }
-
 }
